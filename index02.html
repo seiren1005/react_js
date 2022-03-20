@@ -1,0 +1,59 @@
+
+<!-- difficult way to creat react_js' element.-->
+
+<!DOCTYPE html>
+<html>
+<body>
+    <div id="root"></div>
+</body>
+<script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+<script>
+    // const span = React.createElement(
+    //     "span", {
+    //         id: "sexy-span", 
+    //         style: { color: "red"}
+    //     },
+    //     "Hello. I'm a span."
+    //     );
+    // // React.createElement("tag_name", { id: "id" }, "contents");
+    // // variable_name은 html tag_name과 달라도 됨
+    // // "tag_name"안은 생성하려는 html tag_name과 같아야 됨
+
+    // const root = document.getElementById("root");
+    // ReactDOM.render(span, root);
+    // // render(): user에게 보여줌 (span을 root에 추가)
+
+
+    const root = document.getElementById("root");
+    const h3 = React.createElement(
+        "h3",
+        {
+            id: "tile",
+            onMouseEnter: () => console.log("Mouse enter.")
+            // eventListener
+        },
+        "Hello. I'm a span."
+        );
+    const btn = React.createElement(
+        "button",
+        {
+            onClick: () => console.log("I'm clicked."),
+            style: {
+                backgroundColor: "tomato",
+            }
+        },
+        "Click me"
+        );
+    const container = React.createElement(
+        "div",
+        null,
+        [h3, btn]
+    );
+    
+
+    ReactDOM.render(container, root);
+
+</script>
+</html>
+
