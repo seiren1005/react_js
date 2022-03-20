@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+    <div id="root"></div>
+</body>
+<script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+    const root = document.getElementById("root");
+
+    // jsx
+    const Title = () => (<h3 
+    // 변수 첫글자를 대문자로 해주는 것은 jsx에서 해당 element를
+    // render할 경우 <Variable_name /> 이렇게 하는데 여기서 
+    // Variable_name의 첫 글자가 소문자면 html tag로 인식됨.
+    // html tag가 아니라 component로 인식되게 하려면 첫 글자를 
+    // 대문자로 해줘야함
+        id="title" 
+        onMouseEnter={
+            () => console.log("Mouse enter.")
+        }
+        >Hello. I'm a title.</h3>
+    );
+
+    // using createElement
+    /* const h3 = React.createElement(
+        "h3",
+        {
+            id: "tile",
+            onMouseEnter: () => console.log("Mouse enter.")
+            // eventListener
+        },
+        "Hello. I'm a span."
+        ); */
+    
+    // jsx
+    const Btn = () => (<button 
+        id="button"
+        onClick={
+            () => console.log("I'm clicked.")
+        }
+        style={{
+            backgroundColor: "tomato"            
+        }}
+        >Click me</button>
+    );
+
+    // using createElement
+    /* const btn = React.createElement(
+        "button",
+        {
+            onClick: () => console.log("I'm clicked."),
+            style: {
+                backgroundColor: "tomato",
+            }
+        },
+        "Click me"
+        ); */
+
+    // jsx
+    const container = (<div>
+        <Title />
+        <Btn />
+        </div>
+        // conponent의 첫 글자는 대문자로 써야함 그렇지 않으면
+        // html tag로 인식하게 됨
+    );
+    
+    // using createElement
+    /* const container = React.createElement(
+        "div",
+        null,
+        [title, btn]
+    ); */
+    
+
+    ReactDOM.render(container, root);
+
+</script>
+</html>
+
